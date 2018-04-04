@@ -34,7 +34,7 @@ export function * newChannelRequest (action) {
   // get channel claims data
   let claimsData;
   try {
-    ({ data: claimsData } = yield call(getChannelClaims, host, longId, channelName, 1));
+    ({ data: claimsData } = yield call(getChannelClaims, host, channelName, longId, 1));
   } catch (error) {
     return yield put(onRequestError(error.message));
   }
@@ -53,7 +53,7 @@ function * getNewClaimsAndUpdateChannel (action) {
   const host = yield select(selectSiteHost);
   let claimsData;
   try {
-    ({ data: claimsData } = yield call(getChannelClaims, host, longId, name, page));
+    ({ data: claimsData } = yield call(getChannelClaims, host, name, longId, page));
   } catch (error) {
     return yield put(onRequestError(error.message));
   }
