@@ -7,12 +7,10 @@ import PublishDisabledMessage from '../../containers/PublishDisabledMessage';
 class PublishTool extends React.Component {
   render () {
     if (this.props.disabled) {
-      console.log('publish is disabled');
       return (
         <PublishDisabledMessage />
       );
     } else {
-      console.log('publish is not disabled');
       if (this.props.file) {
         if (this.props.status) {
           return (

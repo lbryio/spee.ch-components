@@ -16,12 +16,9 @@ export const dynamicImport = (filePath, config) => {
     throw new Error('no file path provided to dynamicImport()');
   }
   if (typeof filePath !== 'string') {
-    console.log('dynamicImport > filePath:', filePath);
-    console.log('dynamicImport > filePath type:', typeof filePath);
     throw new Error('file path provided to dynamicImport() must be a string');
   }
   if (!config) {
-    console.log('No customComponents found in site config');
     return null;
   }
   // split out the file folders  // filter out any empty or white-space-only strings
@@ -30,10 +27,8 @@ export const dynamicImport = (filePath, config) => {
   // i.e. customComponents[folders[0]][folders[2][...][folders[n]]
   const component = getDeepestChildValue(config, folders);
   if (component) {
-    console.log('Found custom component for', filePath);
     return component;
   } else {
-    console.log('No custom component found for ', filePath);
     return null;
   }
 };

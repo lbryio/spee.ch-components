@@ -6,7 +6,6 @@ const customGAListener = (siteConfig) => {
     const { analytics: { googleId } } = siteConfig;
 
     GoogleAnalytics.initialize(googleId);
-    console.log('google analytics initialized with id:', googleId);
 
     class GAListener extends React.Component {
         componentDidMount () {
