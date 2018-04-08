@@ -35,10 +35,10 @@
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.11.0"
   },
-  "author": "@billbitt",
-  "homepage": "https://github.com/billbitt/spee.ch-components",
+  "author": "@lbryio @billbitt",
+  "homepage": "https://github.com/lbryio/spee.ch-components",
   "repository": {
     "type": "git",
-    "url": "git@github.com:billbitt/spee.ch-components.git"
+    "url": "git@github.com:lbryio/spee.ch-components.git"
   }
 }
