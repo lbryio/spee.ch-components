@@ -1,7 +1,9 @@
 import Request from '../utils/request';
 
 export function getChannelData (host, name, id) {
-  console.log('getting channel data for', host, name, id);
+  console.log('!! getting channel data for', host);
+  console.log('!! name', name);
+  console.log('!! id', id);
   if (!id) id = 'none';
   const url = `${host}/api/channel/data/${name}/${id}`;
   return Request(url);
