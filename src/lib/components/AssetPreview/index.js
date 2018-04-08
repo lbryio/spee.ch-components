@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import View from './view';
 
-const mapStateToProps = ({site: {defaults: { defaultThumbnail }}}) => {
+const mapStateToProps = ({site: {assetDefaults: { thumbnail }}}) => {
   return {
-    defaultThumbnail,
+    defaultThumbnail: thumbnail,
   };
 };
 
