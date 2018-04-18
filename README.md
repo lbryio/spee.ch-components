@@ -1,21 +1,24 @@
-# Spee.ch Component Library
+# Spee.ch-components
 
-## Getting started
+`Spee.ch-components` is a react-based component library for use with implementations of [spee.ch](https://github.com/lbryio/www.spee.ch).  
 
-### install
+### Quick start
+To get started running your own version of spee.ch, visit [lbryio/www.spee.ch](https://github.com/lbryio/www.spee.ch)
+
+### Install
 ```
 npm install spee.ch-components --save 
 ```
 
-### use
-#### basic components 
+### Use
+#### Basic components 
 These components do not take an options and can be used as they are imported
 ```
 import { NavBar } from 'spee.ch-components';
 ...
 <NavBar />
 ```
-#### customizeable components 
+#### Customizeable components 
 These components take a config param, and must be initialized by calling them as a function.
 
 You can pass custom configs (see documentation for which customization each component takes)...
