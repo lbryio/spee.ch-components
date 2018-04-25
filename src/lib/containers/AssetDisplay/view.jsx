@@ -25,7 +25,7 @@ class AssetDisplay extends React.Component {
         }
         {(status === ERROR) &&
         <div>
-          <p>Unfortunately, we couldn't download your asset from LBRY.  You can help us out by sharing the below error message in the <a className='link--primary' href='https://discord.gg/YjYbwhS' target='_blank'>LBRY discord</a>.</p>
+          <p>Unfortunately, we couldn't download your asset from LBRY.  You can help us out by sharing the below error message in the <a className='link--primary' href='https://chat.lbry.io' target='_blank'>LBRY discord</a>.</p>
           <i><p id='error-message'>{error}</p></i>
         </div>
         }
