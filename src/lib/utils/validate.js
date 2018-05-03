@@ -4,14 +4,8 @@ export const validateChannelSelection = (publishInChannel, selectedChannel, logg
   }
 };
 
-export const validatePublishParams = (file, claim, urlError) => {
-  if (!file) {
-    throw new Error('Please choose a file');
-  }
-  if (!claim) {
-    throw new Error('Please enter a URL');
-  }
-  if (urlError) {
-    throw new Error('Fix the url');
-  }
+export const validateNoPublishErrors = ({file, url, channel}) => {
+    if (file || url || channel) {
+        throw new Error('Fix the errors identified in red');
+    }
 };

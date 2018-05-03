@@ -32,3 +32,8 @@ export function getClaimData (host, name, claimId) {
   const url = `${host}/api/claim/data/${name}/${claimId}`;
   return Request(url);
 };
+
+export function checkClaimAvailability (claim) {
+  const url = `/api/claim/availability/${claim}`;
+  return Request(url);
+}
