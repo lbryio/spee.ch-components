@@ -38,7 +38,7 @@ class PublishStatus extends React.Component {
         <div className='row align-content-center'>
           <p>Something went wrong...</p>
           <p><strong>{message}</strong></p>
-          <p>For help, post the above error text in the #speech channel on the <a className='link--primary' href='https://discord.gg/YjYbwhS' target='_blank'>lbry discord</a></p>
+          <p>For help, post the above error text in the #speech channel on the <a className='link--primary' href='https://chat.lbry.io' target='_blank'>lbry discord</a></p>
           <button className='button--secondary' onClick={clearFile}>Reset</button>
         </div>
         }
