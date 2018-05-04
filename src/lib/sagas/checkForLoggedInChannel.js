@@ -5,14 +5,14 @@ import { updateSelectedChannel } from '../actions/publish';
 import { updateLoggedInChannel } from '../actions/channel';
 
 function * checkForLoggedInChannelSaga () {
-    let user;
+    let response;
     try {
-      user = yield call(checkForLoggedInChannelApi);
+      response = yield call(checkForLoggedInChannelApi);
     } catch (error) {
       return console.log(error);
     }
-    if (user) {
-      const { channelName, shortChannelId, channelClaimId} = user;
+    if (response.data) {
+      const { data: { channelName, shortChannelId, channelClaimId } } = response;
       yield put(updateSelectedChannel(channelName));
       yield put (updateLoggedInChannel(channelName, shortChannelId, channelClaimId));
     }

@@ -11,11 +11,9 @@ const mapStateToProps = ({ channel, site }) => {
   };
 };
 
-const mapDispatchToProps = () => {
-  return {
-    checkForLoggedInChannel,
-    logOutChannel,
-  };
+const mapDispatchToProps = {
+  checkForLoggedInChannel,
+  logOutChannel,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(View);

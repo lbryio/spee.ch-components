@@ -9,7 +9,6 @@ const LOGOUT = 'LOGOUT';
 class NavBar extends React.Component {
   constructor (props) {
     super(props);
-    this.logoutUser = this.logoutUser.bind(this);
     this.handleSelection = this.handleSelection.bind(this);
   }
   componentDidMount () {
@@ -19,7 +18,7 @@ class NavBar extends React.Component {
     const value = event.target.selectedOptions[0].value;
     switch (value) {
       case LOGOUT:
-        this.props.logOutChannel;
+        this.props.logOutChannel();
         break;
       case VIEW:
         // redirect to channel page
