@@ -1,5 +1,5 @@
-import {updateClaim, updateError, validateClaim} from '../../actions/publish';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
+import { updateClaim, updateError, validateClaim } from '../../actions/publish';
 import View from './view';
 
 const mapStateToProps = ({ channel, publish }) => {
@@ -14,17 +14,10 @@ const mapStateToProps = ({ channel, publish }) => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    onClaimInput: (value) => {
-      dispatch(updateClaim(value));
-      if (value) {
-          dispatch(validateClaim(value));
-      } else {
-          dispatch(updateError('url', 'Choose a custom url'));
-      }
-    },
-  };
+const mapDispatchToProps = {
+  validateClaim,
+  updateClaim,
+  updateError,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(View);

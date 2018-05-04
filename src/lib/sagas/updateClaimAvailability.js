@@ -7,9 +7,8 @@ function * updateClaimAvailability ({data}) {
     let isAvailable, message;
     try {
         ({ data: isAvailable, message } = yield call(checkClaimAvailability, data));
-        console.log('isAvailable:', isAvailable, 'message:', message)
     } catch (error) {
-        console.log('updateClaimAvailability error');
+        return console.log(error);
     }
     if (!isAvailable) {
         return yield put(updateError('url', message));

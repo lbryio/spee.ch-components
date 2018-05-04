@@ -6,6 +6,11 @@ class PublishUrlInput extends React.Component {
     super(props);
     this.handleInput = this.handleInput.bind(this);
   }
+  cleanseInput (input) {
+    input = input.replace(/\s+/g, '-');
+    input = input.replace(/[^A-Za-z0-9-]/g, '');
+    return input;
+  }
   componentDidMount () {
     const { claim, fileName } = this.props;
     if (!claim) {
@@ -18,21 +23,23 @@ class PublishUrlInput extends React.Component {
       return this.setInitialClaimName(fileName);
     }
   }
+  setInitialClaimName (fileName) {
+    const fileNameWithoutEnding = fileName.substring(0, fileName.lastIndexOf('.'));
+    const cleanFileName = this.cleanseInput(fileNameWithoutEnding);
+    this.updateAndValidateClaimInput(cleanFileName);
+  }
   handleInput (event) {
     let value = event.target.value;
     value = this.cleanseInput(value);
-    // update the state
-    this.props.onClaimInput(value);
+    this.updateAndValidateClaimInput(value);
   }
-  cleanseInput (input) {
-    input = input.replace(/\s+/g, '-'); // replace spaces with dashes
-    input = input.replace(/[^A-Za-z0-9-]/g, '');  // remove all characters that are not A-Z, a-z, 0-9, or '-'
-    return input;
-  }
-  setInitialClaimName (fileName) {
-    const fileNameWithoutEnding = fileName.substring(0, fileName.lastIndexOf('.'));
-    const cleanClaimName = this.cleanseInput(fileNameWithoutEnding);
-    this.props.onClaimInput(cleanClaimName);
+  updateAndValidateClaimInput(value) {
+    if (value) {
+      this.props.validateClaim(value);
+    } else {
+      this.props.updateError('url', 'Choose a custom url');
+    }
+    this.props.updateClaim(value);
   }
   render () {
     const { claim, loggedInChannelName, loggedInChannelShortId, publishInChannel, selectedChannel, urlError } = this.props;

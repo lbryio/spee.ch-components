@@ -8,10 +8,17 @@ class ChannelCreateForm extends React.Component {
     this.handlePasswordInput = this.handlePasswordInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+  cleanseNameInput (input) {
+    input = input.replace(/\s+/g, '-'); // replace spaces with dashes
+    input = input.replace(/[^A-Za-z0-9-]/g, '');  // remove all characters that are not A-Z, a-z, 0-9, or '-'
+    return input;
+  }
+  cleansePasswordInput (input) {
+    input = input.replace(/\s+/g, ''); // replace spaces
+    return input;
+  }
   handleNameInput (event) {
-    let value = event.target.value;
-    value = value.replace(/\s+/g, '-'); // replace spaces with dashes
-    value = value.replace(/[^A-Za-z0-9-]/g, '');  // remove all characters that are not A-Z, a-z, 0-9, or '-'
+    let value = this.cleanseNameInput(event.target.value);
     if (!value) {
       this.props.updateChannelCreateName('error', 'Please enter a channel name');
     } else {
@@ -20,8 +27,7 @@ class ChannelCreateForm extends React.Component {
     this.props.updateChannelCreateName('value', value);
   }
   handlePasswordInput (event) {
-    let value = event.target.value;
-    value = value.replace(/\s+/g, ''); // replace spaces
+    let value = this.cleansePasswordInput(event.target.value);
     if (!value){
       this.props.updateChannelCreatePassword('error', 'Please enter a password');
     } else {
