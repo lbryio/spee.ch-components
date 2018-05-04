@@ -5,3 +5,9 @@ export function checkForLoggedInChannelApi () {
   const params = {credentials: 'include'};
   return Request(url, params);
 }
+
+export function channelLogoutApi () {
+  const url = `/logout`;
+  const params = {credentials: 'include'};
+  return Request(url, params);
+}

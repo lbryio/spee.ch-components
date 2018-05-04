@@ -20,7 +20,7 @@ export function checkForLoggedInChannel () {
   }
 }
 
-export function logOutOfChannel () {
+export function logOutChannel () {
   return {
     type: actions.CHANNEL_LOGOUT,
     data: null,

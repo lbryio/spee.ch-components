@@ -8,6 +8,7 @@ import { watchUpdateClaimAvailability } from './updateClaimAvailability';
 import { watchUpdateChannelAvailability } from './updateChannelAvailability';
 import { watchChannelCreate } from './createChannel';
 import { watchChannelLoginCheck } from './checkForLoggedInChannel';
+import { watchChannelLogout } from './logoutChannel';
 
 export function * rootSaga () {
   yield all([
@@ -21,5 +22,6 @@ export function * rootSaga () {
     watchUpdateChannelAvailability(),
     watchChannelCreate(),
     watchChannelLoginCheck(),
+    watchChannelLogout(),
   ]);
 }

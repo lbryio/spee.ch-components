@@ -15,21 +15,11 @@ class NavBar extends React.Component {
   componentDidMount () {
     this.props.checkForLoggedInChannel();
   }
-  // logoutUser () {
-  //   const params = {credentials: 'include'};
-  //   request('/logout', params)
-  //     .then(() => {
-  //       this.props.onChannelLogout();
-  //     })
-  //     .catch(error => {
-  //       console.log('/logout error', error.message);
-  //     });
-  // }
   handleSelection (event) {
     const value = event.target.selectedOptions[0].value;
     switch (value) {
       case LOGOUT:
-        this.logoutUser();
+        this.props.logOutChannel;
         break;
       case VIEW:
         // redirect to channel page
