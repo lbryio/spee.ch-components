@@ -5,7 +5,25 @@ export const validateChannelSelection = (publishInChannel, selectedChannel, logg
 };
 
 export const validateNoPublishErrors = ({file, url, channel}) => {
-    if (file || url || channel) {
-        throw new Error('Fix the errors identified in red');
-    }
+  if (file || url || channel) {
+    throw new Error('Fix the errors identified in red');
+  }
+};
+
+export const validateCreateChannelNameInput = ({value, error}) => {
+  if (!value) {
+    throw new Error('Please enter a channel name');
+  }
+  if (error) {
+    throw new Error(error);
+  }
+};
+
+export const validateCreateChannelPasswordInput = ({value, error}) => {
+  if (!value) {
+    throw new Error('Please enter a password');
+  }
+  if (error) {
+    throw new Error(error);
+  }
 };

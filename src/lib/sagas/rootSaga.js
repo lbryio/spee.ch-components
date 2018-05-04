@@ -5,6 +5,8 @@ import { watchNewChannelRequest, watchUpdateChannelClaims } from './show_channel
 import { watchFileIsRequested } from './file';
 import { watchPublishStart } from './publish';
 import { watchUpdateClaimAvailability } from './updateClaimAvailability.js';
+import { watchUpdateChannelAvailability } from './updateChannelAvailability.js';
+import { watchChannelCreate } from './createChannel';
 
 export function * rootSaga () {
   yield all([
@@ -15,5 +17,7 @@ export function * rootSaga () {
     watchFileIsRequested(),
     watchPublishStart(),
     watchUpdateClaimAvailability(),
+    watchUpdateChannelAvailability(),
+    watchChannelCreate(),
   ]);
 }
