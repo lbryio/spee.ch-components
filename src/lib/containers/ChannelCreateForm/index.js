@@ -20,17 +20,19 @@ const mapDispatchToProps = dispatch => {
   return {
     onNameInput: (value) => {
       if (!value) {
-        return dispatch(updateChannelCreateName('error', 'Please enter a channel name'))
+        dispatch(updateChannelCreateName('error', 'Please enter a channel name'))
+      } else {
+        dispatch(updateChannelAvailability(value));
       }
       dispatch(updateChannelCreateName('value', value));
-      dispatch(updateChannelAvailability(value));
     },
     onPasswordInput: (value) => {
       if (!value){
-        return dispatch(updateChannelCreatePassword('error', 'Please enter a password'))
+        dispatch(updateChannelCreatePassword('error', 'Please enter a password'))
+      } else {
+        dispatch(updateChannelCreatePassword('error', null));
       }
       dispatch(updateChannelCreatePassword('value', value));
-      dispatch(updateChannelCreatePassword('error', null));
     },
     onSubmit: () => {
       dispatch(createChannel());
