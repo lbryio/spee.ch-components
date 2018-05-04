@@ -4,25 +4,35 @@ import ProgressBar from '../../components/ProgressBar';
 class ChannelCreateForm extends React.Component {
   constructor (props) {
     super(props);
-    this.handleChannelInput = this.handleChannelInput.bind(this);
+    this.handleNameInput = this.handleNameInput.bind(this);
     this.handlePasswordInput = this.handlePasswordInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-  handleChannelInput (event) {
+  handleNameInput (event) {
     let value = event.target.value;
     value = value.replace(/\s+/g, '-'); // replace spaces with dashes
     value = value.replace(/[^A-Za-z0-9-]/g, '');  // remove all characters that are not A-Z, a-z, 0-9, or '-'
-    this.props.onNameInput(value);
+    if (!value) {
+      this.props.updateChannelCreateName('error', 'Please enter a channel name');
+    } else {
+      this.props.updateChannelAvailability(value);
+    }
+    this.props.updateChannelCreateName('value', value);
   }
   handlePasswordInput (event) {
     let value = event.target.value;
     value = value.replace(/\s+/g, ''); // replace spaces
-    this.props.onPasswordInput(value);
+    if (!value){
+      this.props.updateChannelCreatePassword('error', 'Please enter a password');
+    } else {
+      this.props.updateChannelCreatePassword('error', null);
+    }
+    this.props.updateChannelCreatePassword('value', value);
   }
   handleSubmit (event) {
     console.log('handling submit');
     event.preventDefault();
-    this.props.onSubmit();
+    this.props.createChannel();
   }
   returnErrors () {
     if (this.props.name.error) {
@@ -45,7 +55,7 @@ class ChannelCreateForm extends React.Component {
               </div><div className='column column--6 column--sml-10'>
                 <div className='input-text--primary flex-container--row flex-container--left-bottom span--relative'>
                   <span>@</span>
-                  <input type='text' name='channel' id='new-channel-name' className='input-text' placeholder='exampleChannelName' value={name.value} onChange={this.handleChannelInput} />
+                  <input type='text' name='channel' id='new-channel-name' className='input-text' placeholder='exampleChannelName' value={name.value} onChange={this.handleNameInput} />
                   { (name.value && !name.error) && <span id='input-success-channel-name' className='info-message--success span--absolute'>{'\u2713'}</span> }
                   { name.error && <span id='input-success-channel-name' className='info-message--failure span--absolute'>{'\u2716'}</span> }
                 </div>
