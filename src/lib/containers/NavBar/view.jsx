@@ -2,7 +2,6 @@ import React from 'react';
 import { NavLink, withRouter } from 'react-router-dom';
 import Logo from '../../components/Logo';
 import NavBarChannelDropdown from '../../components/NavBarChannelOptionsDropdown';
-import request from '../../utils/request';
 
 const VIEW = 'VIEW';
 const LOGOUT = 'LOGOUT';
@@ -10,34 +9,22 @@ const LOGOUT = 'LOGOUT';
 class NavBar extends React.Component {
   constructor (props) {
     super(props);
-    this.checkForLoggedInUser = this.checkForLoggedInUser.bind(this);
     this.logoutUser = this.logoutUser.bind(this);
     this.handleSelection = this.handleSelection.bind(this);
   }
   componentDidMount () {
-    // check to see if the user is already logged in
-    this.checkForLoggedInUser();
+    this.props.checkForLoggedInChannel();
   }
-  checkForLoggedInUser () {
-    const params = {credentials: 'include'};
-    request('/user', params)
-      .then(({ data }) => {
-        this.props.onChannelLogin(data.channelName, data.shortChannelId, data.channelClaimId);
-      })
-      .catch(error => {
-        console.log('/user error:', error.message);
-      });
-  }
-  logoutUser () {
-    const params = {credentials: 'include'};
-    request('/logout', params)
-      .then(() => {
-        this.props.onChannelLogout();
-      })
-      .catch(error => {
-        console.log('/logout error', error.message);
-      });
-  }
+  // logoutUser () {
+  //   const params = {credentials: 'include'};
+  //   request('/logout', params)
+  //     .then(() => {
+  //       this.props.onChannelLogout();
+  //     })
+  //     .catch(error => {
+  //       console.log('/logout error', error.message);
+  //     });
+  // }
   handleSelection (event) {
     const value = event.target.selectedOptions[0].value;
     switch (value) {

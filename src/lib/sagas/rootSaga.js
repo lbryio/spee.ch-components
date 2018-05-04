@@ -4,9 +4,10 @@ import { watchNewAssetRequest } from './show_asset';
 import { watchNewChannelRequest, watchUpdateChannelClaims } from './show_channel';
 import { watchFileIsRequested } from './file';
 import { watchPublishStart } from './publish';
-import { watchUpdateClaimAvailability } from './updateClaimAvailability.js';
-import { watchUpdateChannelAvailability } from './updateChannelAvailability.js';
+import { watchUpdateClaimAvailability } from './updateClaimAvailability';
+import { watchUpdateChannelAvailability } from './updateChannelAvailability';
 import { watchChannelCreate } from './createChannel';
+import { watchChannelLoginCheck } from './checkForLoggedInChannel';
 
 export function * rootSaga () {
   yield all([
@@ -19,5 +20,6 @@ export function * rootSaga () {
     watchUpdateClaimAvailability(),
     watchUpdateChannelAvailability(),
     watchChannelCreate(),
+    watchChannelLoginCheck(),
   ]);
 }

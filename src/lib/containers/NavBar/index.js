@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
-import { updateLoggedInChannel } from '../../actions/channel';
-import { updateSelectedChannel } from '../../actions/publish';
+import { logOutOfChannel, checkForLoggedInChannel } from '../../actions/channel';
 import View from './view';
 
 const mapStateToProps = ({ channel, site }) => {
@@ -12,15 +11,13 @@ const mapStateToProps = ({ channel, site }) => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = () => {
   return {
-    onChannelLogin: (name, shortId, longId) => {
-      dispatch(updateLoggedInChannel(name, shortId, longId));
-      dispatch(updateSelectedChannel(name));
-    },
-    onChannelLogout: () => {
-      dispatch(updateLoggedInChannel(null, null, null));
-    },
+    // onChannelLogout: () => {
+    //   dispatch(updateLoggedInChannel(null, null, null));
+    // },
+    checkForLoggedInChannel,
+    logOutOfChannel,
   };
 };
 
