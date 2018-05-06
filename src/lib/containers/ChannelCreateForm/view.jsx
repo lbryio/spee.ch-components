@@ -51,6 +51,7 @@ class ChannelCreateForm extends React.Component {
   }
   render () {
     const { name, password, status } = this.props;
+    const formError = this.returnErrors();
     return (
       <div>
         { !status ? (
@@ -76,8 +77,8 @@ class ChannelCreateForm extends React.Component {
                 </div>
               </div>
             </div>
-            {this.returnErrors() ? (
-              <p className='info-message--failure'>{this.returnErrors()}</p>
+            {formError ? (
+              <p className='info-message--failure'>{formError}</p>
             ) : (
               <p className='info-message'>Choose a name and password for your channel</p>
             )}
