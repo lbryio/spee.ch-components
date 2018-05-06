@@ -39,6 +39,5 @@ export function updateChannelAvailability (channel) {
 export function createChannel () {
   return {
     type: actions.CHANNEL_CREATE,
-    data: null,
   }
 }

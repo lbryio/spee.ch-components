@@ -16,13 +16,11 @@ export function updateLoggedInChannel (name, shortId, longId) {
 export function checkForLoggedInChannel () {
   return {
     type: actions.CHANNEL_LOGIN_CHECK,
-    data: null,
   }
 }
 
 export function logOutChannel () {
   return {
     type: actions.CHANNEL_LOGOUT,
-    data: null,
   }
 }
