@@ -1,15 +1,26 @@
 import { connect } from 'react-redux';
-import { updateLoggedInChannel } from '../../actions/channel';
 import View from './view';
-import {updateSelectedChannel} from '../../actions/publish';
+import {
+  updateChannelAvailability,
+  updateChannelCreateName,
+  updateChannelCreatePassword,
+  createChannel
+} from '../../actions/channelCreate';
 
-const mapDispatchToProps = dispatch => {
+const mapStateToProps = ({channelCreate: {name, password, error, status }}) => {
   return {
-    onChannelLogin: (name, shortId, longId) => {
-      dispatch(updateLoggedInChannel(name, shortId, longId));
-      dispatch(updateSelectedChannel(name));
-    },
-  };
+    name,
+    password,
+    error,
+    status,
+  }
 };
 
-export default connect(null, mapDispatchToProps)(View);
+const mapDispatchToProps = {
+  updateChannelAvailability,
+  updateChannelCreateName,
+  updateChannelCreatePassword,
+  createChannel,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(View);

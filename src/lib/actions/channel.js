@@ -10,5 +10,17 @@ export function updateLoggedInChannel (name, shortId, longId) {
       shortId,
       longId,
     },
-  };
-};
+  }
+}
+
+export function checkForLoggedInChannel () {
+  return {
+    type: actions.CHANNEL_LOGIN_CHECK,
+  }
+}
+
+export function logOutChannel () {
+  return {
+    type: actions.CHANNEL_LOGOUT,
+  }
+}

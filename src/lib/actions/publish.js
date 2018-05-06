@@ -6,13 +6,13 @@ export function selectFile (file) {
     type: actions.FILE_SELECTED,
     data: file,
   };
-};
+}
 
 export function clearFile () {
   return {
     type: actions.FILE_CLEAR,
   };
-};
+}
 
 export function updateMetadata (name, value) {
   return {
@@ -22,7 +22,7 @@ export function updateMetadata (name, value) {
       value,
     },
   };
-};
+}
 
 export function updateClaim (value) {
   return {
@@ -36,7 +36,7 @@ export function setPublishInChannel (channel) {
     type: actions.SET_PUBLISH_IN_CHANNEL,
     channel,
   };
-};
+}
 
 export function updatePublishStatus (status, message) {
   return {
@@ -46,7 +46,7 @@ export function updatePublishStatus (status, message) {
       message,
     },
   };
-};
+}
 
 export function updateError (name, value) {
   return {
@@ -56,32 +56,39 @@ export function updateError (name, value) {
       value,
     },
   };
-};
+}
 
 export function updateSelectedChannel (channelName) {
   return {
     type: actions.SELECTED_CHANNEL_UPDATE,
     data: channelName,
   };
-};
+}
 
 export function toggleMetadataInputs (showMetadataInputs) {
   return {
     type: actions.TOGGLE_METADATA_INPUTS,
     data: showMetadataInputs,
   };
-};
+}
 
 export function onNewThumbnail (file) {
   return {
     type: actions.THUMBNAIL_NEW,
     data: file,
   };
-};
+}
 
 export function startPublish (history) {
   return {
     type: actions.PUBLISH_START,
     data: { history },
+  };
+}
+
+export function validateClaim (claim) {
+  return {
+    type: actions.CLAIM_AVAILABILITY,
+    data: claim,
   };
 }

@@ -1,5 +1,5 @@
-import {updateClaim, updateError} from '../../actions/publish';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
+import { updateClaim, updateError, validateClaim } from '../../actions/publish';
 import View from './view';
 
 const mapStateToProps = ({ channel, publish }) => {
@@ -14,16 +14,10 @@ const mapStateToProps = ({ channel, publish }) => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    onClaimChange: (value) => {
-      dispatch(updateClaim(value));
-      dispatch(updateError('publishSubmit', null));
-    },
-    onUrlError: (value) => {
-      dispatch(updateError('url', value));
-    },
-  };
+const mapDispatchToProps = {
+  validateClaim,
+  updateClaim,
+  updateError,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(View);

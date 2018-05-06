@@ -1,5 +1,4 @@
 import React from 'react';
-import request from '../../utils/request';
 import UrlMiddle from '../../components/PublishUrlMiddleDisplay';
 
 class PublishUrlInput extends React.Component {
@@ -7,49 +6,40 @@ class PublishUrlInput extends React.Component {
     super(props);
     this.handleInput = this.handleInput.bind(this);
   }
+  cleanseInput (input) {
+    input = input.replace(/\s+/g, '-');
+    input = input.replace(/[^A-Za-z0-9-]/g, '');
+    return input;
+  }
   componentDidMount () {
     const { claim, fileName } = this.props;
     if (!claim) {
-      this.setClaimName(fileName);
+      this.setInitialClaimName(fileName);
     }
   }
   componentWillReceiveProps ({ claim, fileName }) {
     // if a new file was chosen, update the claim name
     if (fileName !== this.props.fileName) {
-      return this.setClaimName(fileName);
+      return this.setInitialClaimName(fileName);
     }
-    // if the claim has updated, check its availability
-    if (claim !== this.props.claim) {
-      this.validateClaim(claim);
-    }
+  }
+  setInitialClaimName (fileName) {
+    const fileNameWithoutEnding = fileName.substring(0, fileName.lastIndexOf('.'));
+    const cleanFileName = this.cleanseInput(fileNameWithoutEnding);
+    this.updateAndValidateClaimInput(cleanFileName);
   }
   handleInput (event) {
     let value = event.target.value;
     value = this.cleanseInput(value);
-    // update the state
-    this.props.onClaimChange(value);
+    this.updateAndValidateClaimInput(value);
   }
-  cleanseInput (input) {
-    input = input.replace(/\s+/g, '-'); // replace spaces with dashes
-    input = input.replace(/[^A-Za-z0-9-]/g, '');  // remove all characters that are not A-Z, a-z, 0-9, or '-'
-    return input;
-  }
-  setClaimName (fileName) {
-    const fileNameWithoutEnding = fileName.substring(0, fileName.lastIndexOf('.'));
-    const cleanClaimName = this.cleanseInput(fileNameWithoutEnding);
-    this.props.onClaimChange(cleanClaimName);
-  }
-  validateClaim (claim) {
-    if (!claim) {
-      return this.props.onUrlError('Enter a url above');
+  updateAndValidateClaimInput(value) {
+    if (value) {
+      this.props.validateClaim(value);
+    } else {
+      this.props.updateError('url', 'Choose a custom url');
     }
-    request(`/api/claim/availability/${claim}`)
-      .then(() => {
-        this.props.onUrlError(null);
-      })
-      .catch((error) => {
-        this.props.onUrlError(error.message);
-      });
+    this.props.updateClaim(value);
   }
   render () {
     const { claim, loggedInChannelName, loggedInChannelShortId, publishInChannel, selectedChannel, urlError } = this.props;

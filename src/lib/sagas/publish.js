@@ -5,13 +5,13 @@ import { updateError, updatePublishStatus, clearFile } from '../actions/publish'
 import { selectPublishState } from '../selectors/publish';
 import { selectChannelState } from '../selectors/channel';
 import { selectSiteState } from '../selectors/site';
-import { validateChannelSelection, validatePublishParams } from '../utils/validate';
+import { validateChannelSelection, validateNoPublishErrors } from '../utils/validate';
 import { createPublishMetadata, createPublishFormData, createThumbnailUrl } from '../utils/publish';
 import { makePublishRequestChannel } from '../channels/publish';
 
 function * publishFile (action) {
   const { history } = action.data;
-  const { publishInChannel, selectedChannel, file, claim, metadata, thumbnailChannel, thumbnailChannelId, thumbnail, error: { url: urlError } } = yield select(selectPublishState);
+  const { publishInChannel, selectedChannel, file, claim, metadata, thumbnailChannel, thumbnailChannelId, thumbnail, error: publishToolErrors } = yield select(selectPublishState);
   const { loggedInChannel } = yield select(selectChannelState);
   const { host } = yield select(selectSiteState);
   // validate the channel selection
@@ -22,9 +22,9 @@ function * publishFile (action) {
   };
   // validate publish parameters
   try {
-    validatePublishParams(file, claim, urlError);
+    validateNoPublishErrors(publishToolErrors);
   } catch (error) {
-    return yield put(updateError('publishSubmit', error.message));
+    return console.log('publish error:', error.message);
   }
   // create metadata
   let publishMetadata = createPublishMetadata(claim, file, metadata, publishInChannel, selectedChannel);
@@ -37,9 +37,9 @@ function * publishFile (action) {
   // make the publish request
   const publishChannel = yield call(makePublishRequestChannel, publishFormData);
   while (true) {
-    const {loadStart, progress, load, success, error} = yield take(publishChannel);
-    if (error) {
-      return yield put(updatePublishStatus(publishStates.FAILED, error.message));
+    const {loadStart, progress, load, success, error: publishError} = yield take(publishChannel);
+    if (publishError) {
+      return yield put(updatePublishStatus(publishStates.FAILED, publishError.message));
     }
     if (success) {
       yield put(clearFile());

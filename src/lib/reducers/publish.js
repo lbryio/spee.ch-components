@@ -26,7 +26,6 @@ const customizedPublishReducer = (siteConfig) => {
       file         : null,
       url          : null,
       channel      : null,
-      publishSubmit: null,
     },
     file    : null,
     claim   : '',
