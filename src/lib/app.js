@@ -1,24 +1,31 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-const customizedApp = ({components, containers, pages}) => {
-    const HomePage = pages.HomePage || require('./pages/HomePage').default;
-    const AboutPage = pages.AboutPage || require('./pages/AboutPage').default;
-    const LoginPage = pages.LoginPage || require('./pages/LoginPage').default;
-    const ShowPage = pages.ShowPage || require('./pages/ShowPage').default;
-    const FourOhFourPage = pages.FourOhFourPage || require('./pages/FourOhFourPage').default;
-    return () => {
-        return (
-            <Switch>
-                <Route exact path='/' component={HomePage}/>
-                <Route exact path='/about' component={AboutPage}/>
-                <Route exact path='/login' component={LoginPage}/>
-                <Route exact path='/:identifier/:claim' component={ShowPage}/>
-                <Route exact path='/:claim' component={ShowPage}/>
-                <Route component={FourOhFourPage}/>
-            </Switch>
-        );
-    };
+import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
+import LoginPage from './pages/LoginPage';
+import ShowPage from './pages/ShowPage';
+import FourOhForPage from "./pages/FourOhFourPage";
+
+const App = ({ store }) => {
+  const state = store.getState();
+  console.log('state:', state);
+  const { plugins } = state;
+  const MyHomePage = plugins.pages.HomePage || HomePage;
+  const MyAboutPage = plugins.pages.AboutPage || AboutPage;
+  const MyLoginPage = plugins.pages.LoginPage || LoginPage;
+  const MyShowPage = plugins.pages.ShowPage || ShowPage;
+  const MyFourOhFourPage = plugins.pages.FourOhFourPage || FourOhForPage;
+  return (
+    <Switch>
+      <Route exact path='/' component={MyHomePage}/>
+      <Route exact path='/about' component={MyAboutPage}/>
+      <Route exact path='/login' component={MyLoginPage}/>
+      <Route exact path='/:identifier/:claim' component={MyShowPage}/>
+      <Route exact path='/:claim' component={MyShowPage}/>
+      <Route component={MyFourOhFourPage}/>
+    </Switch>
+  )
 };
 
-export default customizedApp;
+export default App;
