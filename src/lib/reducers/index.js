@@ -6,14 +6,14 @@ import SiteReducer from './site';
 import ChannelCreateReducer from './channelCreate';
 import Plugins from './plugins';
 
-const customizedReducers = (siteConfig, customViews) => {
+const customizedReducers = (siteConfig, viewsConfig) => {
   return combineReducers({
     channel      : ChannelReducer,
     channelCreate: ChannelCreateReducer,
     publish      : PublishReducer(siteConfig),
     show         : ShowReducer,
     site         : SiteReducer(siteConfig),
-    Plugins      : Plugins(customViews),
+    plugins      : Plugins(viewsConfig),
   })
 };
 

@@ -43,8 +43,6 @@ const customizedSiteReducer = (siteConfig) => {
               return state;
       }
   }
-}
-
-
+};
 
 export default customizedSiteReducer;
