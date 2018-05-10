@@ -36,16 +36,18 @@ class MultisitePage extends React.Component {
               <h3>A Common Codebase</h3>
               <p>If you have been following the project, you may have already noticed that the original github repository has grown into three: <a href={'https://github.com/lbryio/www.spee.ch'} target={'_blank'}>www.spee.ch</a>, <a href={'https://github.com/lbryio/spee.ch'} target={'_blank'}>spee.ch</a>, and <a href={'https://github.com/lbryio/spee.ch-components'} target={'_blank'}>spee.ch-components</a>.  I will save the specifics for a future tech-focused blog post in the coming weeks, but the reason for these changes is to modularise the code so that is it easier for anyone who wants to run their own version of Spee.ch to do so, and to be able to customize their Spee.ch to their liking.</p>
               <h3>What About the Flagship Spee.ch Site?</h3>
-              <p>Don’t worry!  If you like using <a href={'http://spee.ch'} target={'_blank'}>Spee.ch</a> and have no intention of running your own site, we will still be here running it for you!  We are dedicated to pushing it forward and using it as patient zero for all additions to the Spee.ch Multisite codebase.</p>
+              <p>Don’t worry!  If you like using <a href={'https://spee.ch'} target={'_blank'}>Spee.ch</a> and have no intention of running your own site, we will still be here running it for you!  We are dedicated to pushing it forward and using it as patient zero for all additions to the Spee.ch Multisite codebase.</p>
               <h2>Join Us</h2>
               <p>Friday, May 18, we will be hosting a live demo showcasing the alpha version of Spee.ch Multisite.  It’s still quite young, but that’s the point: we want to realize this vision together.</p>
+              <p><b><a href={'https://speech.rsvpify.com/'} target={'_blank'}>RSVP HERE!</a></b></p>
               <p>At this first demonstration, we will walk through preparing a server environment, installing LBRY and Spee.ch, and how to make local changes to your Spee.ch instance.  Details below:</p>
               <ul>
                 <li>When: Friday, May 18, 2018</li>
                 <li>Time: 5:00 p.m. PST</li>
                 <li>Where: Google Hangouts</li>
-                <li>Link: <a href={'meet.google.com/aex-ghqg-kcs'} target={'_blank'}>meet.google.com/aex-ghqg-kcs</a></li>
+                <li>Link: <a href={'https://meet.google.com/aex-ghqg-kcs'} target={'_blank'}>meet.google.com/aex-ghqg-kcs</a></li>
                 <li>System Requirements: If you have a server, please make sure you have MySql, Node and NPM installed. If you need help installing the above, or if you need a server to run your own instance on, please join the Hangout 30 minutes ahead of time and we will help get you set up =]</li>
+                <li>Questions: hello@lbry.io</li>
               </ul>
           </div>
         </div>
