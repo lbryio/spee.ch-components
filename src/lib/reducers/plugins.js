@@ -1,13 +1,15 @@
 import * as actions from '../constants/plugin_action_types';
 
-const customizedPluginReducer = ({containers, components, pages}) => {
-  console.log('plugins:', containers, components, pages);
-  let initialState = {
-    components: containers || false,
-    containers: components || false,
+const customizedPluginReducer = ({components, containers, pages}) => {
+  console.log('plugins:', components, containers, pages);
+  const initialState = {
+    components: components || false,
+    containers: 'test', // containers || false,
     pages: pages || false,
   };
+  console.log('initial state:', initialState);
   return (state = initialState, action) => {
+    console.log('new action:', action);
     switch (action.type) {
       case actions.PLUGIN_COMPONENTS_UPDATE:
         return Object.assign({}, state, {
@@ -22,6 +24,7 @@ const customizedPluginReducer = ({containers, components, pages}) => {
           pages: action.data,
         });
       default:
+        console.log('returning state:', state);
         return state;
     }
   }
