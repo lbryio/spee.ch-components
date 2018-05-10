@@ -33,7 +33,7 @@ class NavBar extends React.Component {
     return (
       <div className='row row--wide nav-bar'>
         <div className='row row--padded row--short flex-container--row flex-container--space-between-center'>
-          <Logo />
+          { this.props.customLogo || <Logo /> }
           <div className='nav-bar--center'>
             <span className='nav-bar-tagline'>{siteDescription}</span>
           </div>

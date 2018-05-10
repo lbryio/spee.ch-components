@@ -1,10 +1,11 @@
 import * as actions from '../constants/plugin_action_types';
 
 const customizedPluginReducer = ({containers, components, pages}) => {
+  console.log('plugins:', containers, components, pages);
   let initialState = {
-    components: containers || {},
-    containers: components || {},
-    pages: pages || {},
+    components: containers || false,
+    containers: components || false,
+    pages: pages || false,
   };
   return (state = initialState, action) => {
     switch (action.type) {
