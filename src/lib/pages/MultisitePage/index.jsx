@@ -39,7 +39,7 @@ class MultisitePage extends React.Component {
               <p>Don’t worry!  If you like using <a href={'https://spee.ch'} target={'_blank'}>Spee.ch</a> and have no intention of running your own site, we will still be here running it for you!  We are dedicated to pushing it forward and using it as patient zero for all additions to the Spee.ch Multisite codebase.</p>
               <h2>Join Us</h2>
               <p>Friday, May 18, we will be hosting a live demo showcasing the alpha version of Spee.ch Multisite.  It’s still quite young, but that’s the point: we want to realize this vision together.</p>
-              <p><b><a href={'https://speech.rsvpify.com/'} target={'_blank'}>RSVP HERE!</a></b></p>
+              <p><b><a href={'https://speech.rsvpify.com/'} target={'_blank'}>CLICK HERE TO RSVP!</a></b></p>
               <p>At this first demonstration, we will walk through preparing a server environment, installing LBRY and Spee.ch, and how to make local changes to your Spee.ch instance.  Details below:</p>
               <ul>
                 <li>When: Friday, May 18, 2018</li>
