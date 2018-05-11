@@ -14,8 +14,8 @@ class ShowLite extends React.Component {
         <div className='row row--tall flex-container--column flex-container--center-center show-lite-container'>
           <SEO pageTitle={name} asset={asset} />
           <AssetDisplay />
-          <Link id='asset-boilerpate' className='link--primary fine-print' to={`/${claimId}/${name}`}>hosted
-            via Spee.ch</Link>
+          <div className={'fine-print'}>hosted on <Link id='asset-boilerpate' className='link--primary' to={`/${claimId}/${name}`}>Spee.ch</Link> via <Link id='asset-boilerpate' className='link--primary' to={`/${claimId}/${name}`}>LBRY</Link>
+          </div>
         </div>
       );
     }
