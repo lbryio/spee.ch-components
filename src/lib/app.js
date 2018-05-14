@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 import HomePage  from './pages/HomePage';
-import AboutPage from './pages/AboutPage';
+import AboutPage from '@pages/AboutPage/index.js';
 import LoginPage from './pages/LoginPage';
 import ShowPage from './pages/ShowPage';
 import FourOhFourPage from './pages/FourOhFourPage';
