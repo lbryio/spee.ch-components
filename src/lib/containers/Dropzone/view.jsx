@@ -1,6 +1,6 @@
 import React from 'react';
 import { validateFile } from '../../utils/file';
-import PublishPreview from '../../components/PublishPreview';
+import PublishPreview from '@components/PublishPreview';
 
 class Dropzone extends React.Component {
   constructor (props) {
