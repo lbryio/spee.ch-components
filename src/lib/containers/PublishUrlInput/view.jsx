@@ -1,5 +1,5 @@
 import React from 'react';
-import UrlMiddle from '../../components/PublishUrlMiddleDisplay';
+import UrlMiddle from '@components/PublishUrlMiddleDisplay';
 
 class PublishUrlInput extends React.Component {
   constructor (props) {
