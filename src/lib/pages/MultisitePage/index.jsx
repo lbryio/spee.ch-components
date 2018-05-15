@@ -1,6 +1,6 @@
 import React from 'react';
-import SEO from '../../components/SEO';
-import NavBar from '../../containers/NavBar';
+import SEO from '@components/SEO';
+import NavBar from '@containers/NavBar';
 
 class MultisitePage extends React.Component {
   render () {
