@@ -1,5 +1,5 @@
 import React from 'react';
-import ExpandingTextArea from '../../components/ExpandingTextArea';
+import ExpandingTextArea from '@components/ExpandingTextArea';
 
 class PublishMetadataInputs extends React.Component {
   constructor (props) {
