@@ -1,5 +1,5 @@
 import React from 'react';
-import AssetPreview from '../../components/AssetPreview';
+import AssetPreview from '@components/AssetPreview';
 
 class ChannelClaimsDisplay extends React.Component {
   constructor (props) {
