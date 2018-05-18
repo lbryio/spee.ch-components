@@ -5,10 +5,14 @@ const customizedPublishReducer = (siteConfig) => {
   // parse inputs
   let disabledConfig = false;
   let disabledMessageConfig = 'none';
+  let thumbnailChannel = '';
+  let thumbnailChannelId = '';
   if (siteConfig){
       if (siteConfig.publishing) {
           disabledConfig = siteConfig.publishing.disabled;
-          disabledMessageConfig = siteConfig.publishing.disabledMessage
+          disabledMessageConfig = siteConfig.publishing.disabledMessage;
+          thumbnailChannel = siteConfig.publishing.thumbnailChannel;
+          thumbnailChannelId = siteConfig.publishing.thumbnailChannelId;
       }
   }
   // create initial state
@@ -36,6 +40,8 @@ const customizedPublishReducer = (siteConfig) => {
       nsfw       : false,
     },
     thumbnail: null,
+    thumbnailChannel,
+    thumbnailChannelId,
   };
   return (state = initialState, action) => {
       switch (action.type) {
