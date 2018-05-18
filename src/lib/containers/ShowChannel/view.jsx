@@ -1,8 +1,8 @@
 import React from 'react';
 // components
-import SEO from '../../components/SEO';
+import SEO from '@components/SEO';
 // pages
-import ErrorPage from '../../pages/ErrorPage';
+import ErrorPage from '@pages/ErrorPage';
 // containers
 import NavBar from '../NavBar';
 import ChannelClaimsDisplay from '../ChannelClaimsDisplay';

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 // components
-import SEO from '../../components/SEO';
+import SEO from '@components/SEO';
 // containers
 import AssetDisplay from '../AssetDisplay';
 

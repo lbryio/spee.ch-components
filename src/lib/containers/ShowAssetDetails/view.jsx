@@ -1,5 +1,5 @@
 import React from 'react';
-import SEO from '../../components/SEO';
+import SEO from '@components/SEO';
 import NavBar from '../NavBar';
 import ErrorPage from '../../pages/ErrorPage';
 import AssetTitle from '../AssetTitle';

@@ -1,8 +1,8 @@
 import React from 'react';
-import Dropzone from '../../containers/Dropzone';
-import PublishDetails from '../../containers/PublishDetails';
-import PublishStatus from '../../containers/PublishStatus';
-import PublishDisabledMessage from '../../containers/PublishDisabledMessage';
+import Dropzone from '@containers/Dropzone';
+import PublishDetails from '@containers/PublishDetails';
+import PublishStatus from '@containers/PublishStatus';
+import PublishDisabledMessage from '@containers/PublishDisabledMessage';
 
 class PublishTool extends React.Component {
   render () {

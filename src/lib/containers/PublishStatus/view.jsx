@@ -1,5 +1,5 @@
 import React from 'react';
-import ProgressBar from '../../components/ProgressBar';
+import ProgressBar from '@components/ProgressBar';
 import * as publishStates from '../../constants/publish_claim_states';
 
 class PublishStatus extends React.Component {

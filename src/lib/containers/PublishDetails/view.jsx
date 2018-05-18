@@ -1,11 +1,11 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import Dropzone from '../../containers/Dropzone';
-import PublishTitleInput from '../../containers/PublishTitleInput';
-import PublishUrlInput from '../../containers/PublishUrlInput';
-import PublishThumbnailInput from '../../containers/PublishThumbnailInput';
-import PublishMetadataInputs from '../../containers/PublishMetadataInputs';
-import ChannelSelect from '../../containers/ChannelSelect';
+import Dropzone from '@containers/Dropzone';
+import PublishTitleInput from '@containers/PublishTitleInput';
+import PublishUrlInput from '@containers/PublishUrlInput';
+import PublishThumbnailInput from '@containers/PublishThumbnailInput';
+import PublishMetadataInputs from '@containers/PublishMetadataInputs';
+import ChannelSelect from '@containers/ChannelSelect';
 
 class PublishDetails extends React.Component {
   constructor (props) {
